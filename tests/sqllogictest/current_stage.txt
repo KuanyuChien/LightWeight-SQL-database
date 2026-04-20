@@ -1,0 +1,7 @@
+# Add files here as the project advances.
+# Keep this list small so autonomous runs stay fast and safe.
+tests/sqllogictest/select1.test
+tests/sqllogictest/select2.test
+tests/sqllogictest/select3.test
+tests/sqllogictest/select4.test
+tests/sqllogictest/select5.test

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL DB Demo Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero panel reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Class Demo Dashboard</p>
+          <h1 id="project-title"></h1>
+          <p class="hero-text" id="project-description"></p>
+          <p class="hero-text muted" id="agent-workflow"></p>
+        </div>
+        <div class="hero-metrics" id="hero-metrics"></div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="panel span-7 reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Project Overview</p>
+            <h2>Development Story</h2>
+          </div>
+          <p class="section-copy" id="project-story"></p>
+          <div class="story-cards" id="story-cards"></div>
+        </section>
+
+        <section class="panel span-5 reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Test Progress</p>
+            <h2>Tracked Scope</h2>
+          </div>
+          <div class="scope-box">
+            <p id="scope-summary"></p>
+            <p class="muted" id="scope-note"></p>
+          </div>
+          <div class="file-list" id="file-list"></div>
+        </section>
+
+        <section class="panel span-7 reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Validation Snapshot</p>
+            <h2>sqllogictest Coverage</h2>
+          </div>
+          <div class="stat-grid" id="test-stats"></div>
+          <div class="timing-bars" id="timing-bars"></div>
+          <div class="bug-box" id="bug-box"></div>
+          <p class="muted detail-line" id="hotspot-line"></p>
+        </section>
+
+        <section class="panel span-5 reveal accent-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Benchmark Snapshot</p>
+            <h2>Representative Queries</h2>
+          </div>
+          <div class="benchmark-bars" id="benchmark-bars"></div>
+          <p class="muted detail-line">
+            Benchmarks use the tracked `scripts/benchmark_queries.py --rows 5000` snapshot from the repo notes.
+          </p>
+        </section>
+
+        <section class="panel span-12 reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Milestones</p>
+            <h2>Capability Timeline</h2>
+          </div>
+          <div class="timeline" id="timeline"></div>
+        </section>
+
+        <section class="panel span-12 reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Example Queries</p>
+            <h2>What The Engine Can Show</h2>
+          </div>
+          <div class="query-grid" id="query-grid"></div>
+        </section>
+
+        <section class="panel span-12 reveal" id="sql-playground">
+          <div class="section-heading">
+            <p class="eyebrow">Interactive</p>
+            <h2>SQL Playground</h2>
+          </div>
+          <p class="section-copy muted">Write SQL below and press <strong>Run</strong> to execute it against the in-memory engine. Use <strong>Reset</strong> to clear all tables.</p>
+          <div class="playground-layout">
+            <div class="playground-editor">
+              <textarea id="sql-input" spellcheck="false" placeholder="CREATE TABLE demo(id INTEGER, value INTEGER);
+INSERT INTO demo VALUES(1, 100);
+INSERT INTO demo VALUES(2, 200);
+SELECT * FROM demo WHERE value > 50 ORDER BY id;"></textarea>
+              <div class="playground-actions">
+                <button id="sql-run" class="btn btn-primary">▶ Run</button>
+                <button id="sql-reset" class="btn btn-secondary">↺ Reset</button>
+                <span id="sql-status" class="playground-status"></span>
+              </div>
+            </div>
+            <div class="playground-result" id="sql-result">
+              <p class="muted">Results will appear here.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="data.js?v=2"></script>
+    <script src="app.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sql-db"
+version = "0.1.0"
+description = "Lightweight in-memory SQL database"
+requires-python = ">=3.13"
+
+[project.scripts]
+sqldb-repl = "sql_db.repl:main"
+sqldb-slt = "sql_db.sqllogictest_runner:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
